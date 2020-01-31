@@ -122,9 +122,9 @@ Once you’ve built out all the remaining requirements its time to get user feed
 
 ![amplifyconsole](https://raw.githubusercontent.com/swaminator/outbound/master/amplifyconsole-cra.gif)
 
-You have now learned how to model data, create a GraphQL API endpoint, set up authentication, define authorization rules, integrate cloud connected UI components in your app, and set up a CI/CD pipeline for your frontend and backend. Amplify not only gets you up and running, but also scales as your business grows as the entire backend is serverless (or fully managed by AWS so you don’t have to worry about managing servers).
+That’s it for Part 1! You have now learned how to model data, create a GraphQL API endpoint, set up authentication, define authorization rules, integrate cloud connected UI components in your app, and set up a CI/CD pipeline for your frontend and backend. Amplify not only gets you up and running, but also scales as your business grows as the entire backend is serverless (or fully managed by AWS so you don’t have to worry about managing servers).
 
-That’s it for Part 1! In part 2, we will walkthrough an end-to-end tutorial on creating the poster app. To learn more about Amplify, here are some resources:
+In part 2, we will walkthrough an end-to-end tutorial on creating the poster app. In the mean time, learn more about AWS Amplify:
 
 - Home page: http://amplify.aws/
 - Docs: https://aws-amplify.github.io/
