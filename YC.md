@@ -66,7 +66,7 @@ Build features as per your MVP requirements. Eric Ries (author of the Lean Start
 
 *Requirement 1:  Customers can browse a catalog of posters*
 
-We need to store our poster catalog in a data store and provide a way to query or mutate the data. The Amplify command line toolchain makes it really easy to provision a GraphQL API endpoint connected to a NoSQL database (DynamoDB). If you haven’t heard of GraphQL, it is a query language for your API and provides an easy way for frontends to fetch data from servers. You can learn more about GraphQL [here](https://docs.aws.amazon.com/appsync/latest/devguide/graphql-overview.html). To get started install the CLI and run the following command (follow our [getting started steps](https://aws-amplify.github.io/docs/).
+We need to store our poster catalog in a data store and provide a way to query or mutate the data. The Amplify command line toolchain makes it really easy to provision a GraphQL API endpoint connected to a NoSQL database (DynamoDB). If you haven’t heard of GraphQL, it is a query language for your API and provides an easy way for frontends to fetch data from servers. You can learn more about GraphQL [here](https://docs.aws.amazon.com/appsync/latest/devguide/graphql-overview.html). Follow our [getting started steps](https://aws-amplify.github.io/docs/) to install the CLI on your local machine.
 
 ```bash
 npm install -g @aws-amplify/cli
