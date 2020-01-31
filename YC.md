@@ -123,7 +123,7 @@ You have now learned how to model data, create a GraphQL API endpoint, set up au
 
 That’s it for Part 1! In part 2, we will walkthrough an end-to-end tutorial on creating the poster app. To learn more about Amplify, here are some resources:
 
-Home page: http://amplify.aws/
-Docs: https://aws-amplify.github.io/
-Community: https://amplify.aws/community/
-awesome-amplify: https://github.com/dabit3/awesome-aws-amplify
+- Home page: http://amplify.aws/
+- Docs: https://aws-amplify.github.io/
+- Community: https://amplify.aws/community/
+- awesome-amplify: https://github.com/dabit3/awesome-aws-amplify
