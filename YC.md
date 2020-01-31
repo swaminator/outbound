@@ -1,3 +1,4 @@
+# Building your app from idea to MVP (Part 1)
 *By Nikhil Swaminathan, Sr. Product Manager, AWS Amplify | Follow me on [Twitter](https://twitter.com/TheSwaminator)*
 
 Prior to joining Amazon, I cofounded an EdTech startup called Classalyze (classroom analytics for teachers and administrators) that was incubated at the Pearson Learning Accelerator. I ran the startup as the CTO for three years, built the MVP before we were able to afford an engineering team, ran sales and operations once the product features were more mature, and grew the team to 10 full-time people until we eventually shut down three years later (which can be its own post!). Post-startup life, I joined AWS and now work on Amplify, which makes it easier for startups to ship products.
