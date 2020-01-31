@@ -1,3 +1,5 @@
+*By Nikhil Swaminathan, Sr. Product Manager, AWS Amplify | Follow me on [Twitter](https://twitter.com/TheSwaminator)*
+
 Prior to joining Amazon, I cofounded an EdTech startup called Classalyze (classroom analytics for teachers and administrators) that was incubated at the Pearson Learning Accelerator. I ran the startup as the CTO for three years, built the MVP before we were able to afford an engineering team, ran sales and operations once the product features were more mature, and grew the team to 10 full-time people until we eventually shut down three years later (which can be it’s own post!). Post-startup life, I joined AWS and now work on Amplify, which makes it easier for startups to ship products.
 
 In case you’re not familiar with it, [AWS Amplify](https://aws.amazon.com/amplify/) offers fullstack (frontend+backend) developer tools - the command line interface (CLI) simplifies deploying backend resources such as authentication, APIs, databases, and file storage; the frontend libraries and UI components make integration with the backend seamless; and the Amplify Console provides a Git-based workflow for your team to deploy and host your web app. 
@@ -43,7 +45,8 @@ Given most of the requirements are in place, the next step is to define a flow. 
 ![img](https://s3.amazonaws.com/37assets/svn/323-flow-template.png)
 
 I've created a sample one for the poster app idea. Once the flows are sketched out, you might choose to mock screens. Personally, I think this is the right time to start building your app.
-![img](https://s3.amazonaws.com/37assets/svn/323-flow-template.png)
+
+![img](https://raw.githubusercontent.com/swaminator/outbound/master/flow.png)
 
 **Step 3: Pick a platform as a distribution channel (web or mobile or both)**
 
