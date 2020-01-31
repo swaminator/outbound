@@ -52,3 +52,68 @@ Your distribution channel is actually the most important decision. Are you build
 There is no right decision, it’s just what you’re comfortable with. As a tech co-founder who also did sales, one principle I followed was to outsource as much complexity as I could. Some things you give up as a result is control, but I was okay with that as I wanted to focus on selling my product. In 2013, I chose Ruby on Rails because 1) great community support - gems (or 3rd party libs) like Devise, ActiveAdmin were well adopted 2) defacto choice for most startups at the time 3) effortless deployment with Heroku 4) database - I chose Postgres mainly because Postgres and Heroku worked really well together (and I had only ever worked with relational DBs) 5) free to start. 
 
 If I were building my startup in 2020, I would choose React on the frontend and AWS Amplify for the serverless backend. The primary reasons for using Amplify: 1) really easy to get started 2) free to start and very cheap compared to Heroku even once you start acquiring customers 3) managed services such as authentication and serverless functions (no need to manage scaling servers as your traffic increases). 
+
+**Step 5: Build features**
+
+Build features as per your MVP requirements. Eric Ries (author of the Lean Startup) tells startups to adopt a Build → Measure → Learn feedback loop. Ries says, *“The fundamental activity of a startup is to turn ideas into products, measure how customers respond, and then learn whether to pivot or persevere.“*  Startups that are able to execute the Build → Measure → Iterate cycle fast are the ones that succeed. In order to execute fast, you need to be able to build tech that can evolve as your requirements evolve. Amplify enables startups to iterate on their tech stack really quickly as requirements change. 
+
+*Requirement 1:  Customers can browse a catalog of posters*
+We need to store our poster catalog in a data store and provide a way to query or mutate the data. The Amplify command line toolchain makes it really easy to provision a GraphQL API endpoint connected to a NoSQL database (DynamoDB). If you haven’t heard of GraphQL, it is a query language for your API and provides an easy way for frontends to fetch data from servers. You can learn more about GraphQL [here](https://docs.aws.amazon.com/appsync/latest/devguide/graphql-overview.html). To get started install the CLI and run the following command (follow our [getting started steps](https://aws-amplify.github.io/docs/).
+
+```bash
+npm install -g @aws-amplify/cli
+amplify add api #pick GraphQL
+```
+The Amplify CLI offers a schema designer called the GraphQL transform that allows you to model your backend data  objects. The  schema below will create a NoSQL database with a table named Poster, an S3 bucket (S3 is a storage provider on AWS) where the poster images will be stored, and a GraphQL API endpoint which can be used to fetch/mutate the data from the frontend. To deploy these resources to the cloud all you need to do is run amplify push from the CLI. Learn more about the [GraphQL Transform](https://aws-amplify.github.io/docs/cli-toolchain/graphql).
+
+Once the deployment is complete, include the Amplify client JS library in your frontend project, and query for all the posters with the following code:
+
+```
+import Amplify, { API, graphqlOperation } from 'aws-amplify';
+import * as queries from './graphql/queries';
+
+
+// Simple query
+const allPosters = await API.graphql(graphqlOperation(queries.listPosters));
+console.log(allPosters);
+```
+*Requirement 2: Customers can create an account to favorite posters and view order history*
+Amplify has an authentication service that takes 10 minutes to setup. Simply run amplify add auth from the CLI, choose the defaults, and run amplify push. This will provision an authentication service with Amazon Cognito on AWS, and provide a user directory where you can manage users and groups. 
+
+Amplify has cloud connected UI components that allow you to add prebuilt UI components into your app with very few lines of code. For auth, Amplify has the Authenticator UI component that offers a basic authentication flow for signing-up/signing-in users, Multi-factor Authentication, and sign-out.
+
+![CRA](https://raw.githubusercontent.com/aws-samples/create-react-app-auth-amplify/master/src/images/auth.gif)
+
+Wrap the default App component using the Authenticator by modifying your `App.js` file to include:
+`export default withAuthenticator(App, true);`
+
+That’s it! With a single line of code you have fully functioning authentication service running. Checkout our [authentication starter](https://github.com/aws-samples/create-react-app-auth-amplify) for a fully functioning sample. The Amplify Auth class has over 30 methods for building a custom flow, view our complete guide to user authentication (https://dev.to/dabit3/the-complete-guide-to-user-authentication-with-the-amplify-framework-2inh).
+
+*Requirement 3: Administrators can create/update/delete posters*
+Now that we have an auth service, we can also setup fine-grained authorization rules. The requirement states that only administrators are allowed to create/upload/delete new posters. The CLI allows you to modify the schema using the GraphQL transform. The following @auth rule will only allow the Admin group (created in the Auth service) to create/update/delete the posters, maintaining read access to anyone. Again, an amplify push will deploy the rule. 
+
+```
+type Poster @model
+*@auth(rules: 
+[{allow: groups, groups: ["Admin"], 
+operations: [create, update, delete]}]) *
+{
+  id: ID!
+  name: String!
+  description: String
+  price: Float!
+  image: S3Object
+}
+```
+
+**Step 6: Ship your MVP**
+Once you’ve built out all the remaining requirements its time to get user feedback. To ship our web app, we can use the Amplify Console. The AWS Amplify Console provides a Git-based workflow for hosting fullstack serverless web apps with continuous deployment. Continuous deployment allows you to automatically deploy updates on every code commit. Simply connect your application's code repository to Amplify Console, and changes to your frontend and backend are deployed in a single workflow on every code commit. Amplify Console offers easy custom domain setup, feature branch deployments, password protection and many more features. [Get started with the Amplify Console](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html).
+
+You have now learned how to model data, create a GraphQL API endpoint, set up authentication, define authorization rules, integrate cloud connected UI components in your app, and set up a CI/CD pipeline for your frontend and backend. Amplify not only gets you up and running, but also scales as your business grows as the entire backend is serverless (or fully managed by AWS so you don’t have to worry about managing servers).
+
+That’s it for Part 1! In part 2, we will walkthrough an end-to-end tutorial on creating the poster app. To learn more about Amplify, here are some resources:
+
+Home page: http://amplify.aws/
+Docs: https://aws-amplify.github.io/
+Community: https://amplify.aws/community/
+awesome-amplify: https://github.com/dabit3/awesome-aws-amplify
