@@ -65,6 +65,7 @@ If I were building my startup in 2020, I would choose React on the frontend and 
 Build features as per your MVP requirements. Eric Ries (author of the Lean Startup) tells startups to adopt a Build → Measure → Learn feedback loop. Ries says, *“The fundamental activity of a startup is to turn ideas into products, measure how customers respond, and then learn whether to pivot or persevere.“*  Startups that are able to execute the Build → Measure → Iterate cycle fast are the ones that succeed. In order to execute fast, you need to be able to build tech that can evolve as your requirements evolve. Amplify enables startups to iterate on their tech stack really quickly as requirements change. 
 
 *Requirement 1:  Customers can browse a catalog of posters*
+
 We need to store our poster catalog in a data store and provide a way to query or mutate the data. The Amplify command line toolchain makes it really easy to provision a GraphQL API endpoint connected to a NoSQL database (DynamoDB). If you haven’t heard of GraphQL, it is a query language for your API and provides an easy way for frontends to fetch data from servers. You can learn more about GraphQL [here](https://docs.aws.amazon.com/appsync/latest/devguide/graphql-overview.html). To get started install the CLI and run the following command (follow our [getting started steps](https://aws-amplify.github.io/docs/).
 
 ```bash
@@ -85,6 +86,7 @@ const allPosters = await API.graphql(graphqlOperation(queries.listPosters));
 console.log(allPosters);
 ```
 *Requirement 2: Customers can create an account to favorite posters and view order history*
+
 Amplify has an authentication service that takes 10 minutes to setup. Simply run amplify add auth from the CLI, choose the defaults, and run amplify push. This will provision an authentication service with Amazon Cognito on AWS, and provide a user directory where you can manage users and groups. 
 
 Amplify has cloud connected UI components that allow you to add prebuilt UI components into your app with very few lines of code. For auth, Amplify has the Authenticator UI component that offers a basic authentication flow for signing-up/signing-in users, Multi-factor Authentication, and sign-out.
@@ -97,6 +99,7 @@ Wrap the default App component using the Authenticator by modifying your `App.js
 That’s it! With a single line of code you have fully functioning authentication service running. Checkout our [authentication starter](https://github.com/aws-samples/create-react-app-auth-amplify) for a fully functioning sample. The Amplify Auth class has over 30 methods for building a custom flow, view our complete guide to user authentication (https://dev.to/dabit3/the-complete-guide-to-user-authentication-with-the-amplify-framework-2inh).
 
 *Requirement 3: Administrators can create/update/delete posters*
+
 Now that we have an auth service, we can also setup fine-grained authorization rules. The requirement states that only administrators are allowed to create/upload/delete new posters. The CLI allows you to modify the schema using the GraphQL transform. The following @auth rule will only allow the Admin group (created in the Auth service) to create/update/delete the posters, maintaining read access to anyone. Again, an amplify push will deploy the rule. 
 
 ```
