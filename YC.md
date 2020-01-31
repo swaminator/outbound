@@ -109,6 +109,8 @@ operations: [create, update, delete]}]) *
 **Step 6: Ship your MVP**
 Once you’ve built out all the remaining requirements its time to get user feedback. To ship our web app, we can use the Amplify Console. The AWS Amplify Console provides a Git-based workflow for hosting fullstack serverless web apps with continuous deployment. Continuous deployment allows you to automatically deploy updates on every code commit. Simply connect your application's code repository to Amplify Console, and changes to your frontend and backend are deployed in a single workflow on every code commit. Amplify Console offers easy custom domain setup, feature branch deployments, password protection and many more features. [Get started with the Amplify Console](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html).
 
+![amplifyconsole](https://raw.githubusercontent.com/swaminator/outbound/master/amplifyconsole-cra.gif)
+
 You have now learned how to model data, create a GraphQL API endpoint, set up authentication, define authorization rules, integrate cloud connected UI components in your app, and set up a CI/CD pipeline for your frontend and backend. Amplify not only gets you up and running, but also scales as your business grows as the entire backend is serverless (or fully managed by AWS so you don’t have to worry about managing servers).
 
 That’s it for Part 1! In part 2, we will walkthrough an end-to-end tutorial on creating the poster app. To learn more about Amplify, here are some resources:
