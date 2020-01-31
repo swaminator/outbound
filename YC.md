@@ -9,6 +9,7 @@ Given my background both as a Founder and at a big tech company, I wanted to sha
 Now that you have AWS credits, let’s walk through how to grow your idea to an MVP app.
 
 **Step 1: Validate your idea without writing a single line of code**
+
 It all starts with the idea. But while ideas are important, they are also the easiest part of any startup journey. The biggest mistake I made with my startup, was spending way too much time trying to get my initial idea to work. We love our first ideas but must be able to let our ideas grow and evolve as we progress. It is important to start with the problem your idea is solving. 
 
 For my sample online poster business idea, my hypothesis problem is that *“it’s hard to to find a poster I want to pin up on my wall”*. Who is the target customer with the problem? For example, maybe it’s college students. If so, do college students actually have this problem? How does the solution you’re building improve their life? The best way to go about getting answers is by talking to students via email and in-person interviews.  If you do not find a problem/solution fit, iterate your idea further. In your 1:1 conversations, maybe there were other problems students alluded to (e.g. no time for cooking? not enough means to earn part-time income?).
@@ -24,6 +25,7 @@ If you do find problem/solution fit (Congratulations!), the next step is finding
 If you are able to get initial traction, your idea has product/market fit and it’s time to actually build the product. If you’re building a tech product (where the end deliverable is a web or mobile app), there are many considerations as a co-founder even before you get started building your product.
 
 **Step 2: Unpack your idea**
+
 It’s now time to unpack your idea into to a concrete set of user stories or requirements for your MVP.  A minimum viable product is by definition an imperfect product. As Michael Seibel said last week, do not attempt perfection. Ship something fast, get feedback, then iterate. The MVP exists to offer value to your early customers and gives you something to show potential investors. 
 
 To define the scope of your MVP, you have to define the narrative for your product. If your problem statement is *“it’s hard to to find a poster I want to pin up on my wall”* then your MVP must address how this poster app makes finding the poster you want really easy (instead of simply referring to it as an online poster business).
@@ -44,9 +46,11 @@ I've created a sample one for the poster app idea. Once the flows are sketched o
 ![img](https://s3.amazonaws.com/37assets/svn/323-flow-template.png)
 
 **Step 3: Pick a platform as a distribution channel (web or mobile or both)**
+
 Your distribution channel is actually the most important decision. Are you building a web or mobile app or both? For example, a game might be better served on a mobile device, a productivity app might be better on a browser, while an e-commerce app would arguably be useful on both. This fundamental decision drives all your future technology decisions. For the poster app, I’d like for users to be able to make purchases on both the desktop and a mobile device. The fastest way to get to market would be to build a Progressive web app or a Single-page web app that can be rendered mobile-first on both phones and desktops. If you saw traction, then you could potentially invest further in native app experiences.
 
 **Step 4: Define your tech stack**
+
  Once you’ve picked a platform it’s time to pick a technology stack. This is either a really complicated decision or a very simple one if you or your technical cofounder is already comfortable with a particular technology. If you are building a mobile app, do you choose Swift (iOS) or Java (Android), or something cross-platform like React Native? For a web app, the choices seem endless - do you build a single page app with frameworks such as React, Vue, or Angular, or do you build server-rendered apps with more traditional (e.g. Rails, PHP) or modern (NextJS, Nuxt) frameworks? On the backend do you manage your own virtual servers (e.g. EC2)  or go serverless (Lambda, AppSync, Fargate)?
 
 There is no right decision, it’s just what you’re comfortable with. As a tech co-founder who also did sales, one principle I followed was to outsource as much complexity as I could. Some things you give up as a result is control, but I was okay with that as I wanted to focus on selling my product. In 2013, I chose Ruby on Rails because 1) great community support - gems (or 3rd party libs) like Devise, ActiveAdmin were well adopted 2) defacto choice for most startups at the time 3) effortless deployment with Heroku 4) database - I chose Postgres mainly because Postgres and Heroku worked really well together (and I had only ever worked with relational DBs) 5) free to start. 
@@ -107,6 +111,7 @@ operations: [create, update, delete]}]) *
 ```
 
 **Step 6: Ship your MVP**
+
 Once you’ve built out all the remaining requirements its time to get user feedback. To ship our web app, we can use the Amplify Console. The AWS Amplify Console provides a Git-based workflow for hosting fullstack serverless web apps with continuous deployment. Continuous deployment allows you to automatically deploy updates on every code commit. Simply connect your application's code repository to Amplify Console, and changes to your frontend and backend are deployed in a single workflow on every code commit. Amplify Console offers easy custom domain setup, feature branch deployments, password protection and many more features. [Get started with the Amplify Console](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html).
 
 ![amplifyconsole](https://raw.githubusercontent.com/swaminator/outbound/master/amplifyconsole-cra.gif)
