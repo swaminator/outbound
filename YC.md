@@ -3,29 +3,21 @@
 
 Prior to joining Amazon, I cofounded an EdTech startup called Classalyze (classroom analytics for teachers and administrators) that was incubated at the Pearson Learning Accelerator. I ran the startup as the CTO for three years, built the MVP before we were able to afford an engineering team, ran sales and operations once the product features were more mature, and grew the team to 10 full-time people until we eventually shut down three years later (which can be its own post!). Post-startup life, I joined AWS and now work on Amplify, which makes it easier for startups to ship products.
 
-In case you’re not familiar with it, [AWS Amplify](https://aws.amazon.com/amplify/) offers fullstack (frontend+backend) developer tools - the command line interface (CLI) simplifies deploying backend resources such as authentication, APIs, databases, and file storage; the frontend libraries and UI components make integration with the backend seamless; and the Amplify Console provides a Git-based workflow for your team to deploy and host your web app. 
+In case you’re not familiar with it, [AWS Amplify](https://aws.amazon.com/amplify/) offers fullstack (frontend+backend) developer tools - the command line interface (CLI) simplifies deploying backend resources such as authentication, APIs, databases, and file storage; the frontend libraries and UI components make integration with the backend seamless; and the Amplify Console provides a Git-based workflow for your team to deploy and host your web app. Amplify is used by both startups and enterprises such as Hypertrack, Noom, BMW, Coca-Cola, and Airbnb. 
 
-Given my background both as a Founder and at a big tech company, I wanted to share my experience and advice for turning your idea for an app into a working MVP. In Part 1, I’ll start by walking you through how to take an idea — in today’s case, an online poster business — from a concept to a real app. Part 2 (coming soon!), will be a hands-on tutorial for actually building the app. To build the app, we will be using AWS Amplify - not just because I work on it, but IMHO it's truly the fastest way to build a mobile or web app on AWS and I wish it existed when I was a startup founder! It is currently used by startup teams at Hypertrack, Noom, Happybits and large enterprise teams at Volkswagen, BMW, Coca-Cola, and Airbnb. 
+Given my background both as a Founder and at a big tech company, I wanted to share my experience and advice for turning your idea for an app into a working MVP. In Part 1, I’ll start by walking you through how to take an idea — in today’s case, an online poster business — from a concept to a real app. In part 2, we will walkthrough an end-to-end tutorial on creating the poster app.
 
-*If you’d like to follow along and start building your own MVP in real time, be sure to check out the [AWS Activate URL](https://console.aws.amazon.com/activate/home/#/apply/portfolio) and use the XXXXXXXX to get credits. Make sure to use the same email you registered for Startup School with so you can get swiftly approved.*
+*If you’d like to follow along and start building your own MVP in real time, be sure to check out the [AWS Activate URL](https://console.aws.amazon.com/activate/home/#/apply/portfolio) and use the ORG ID: 0ap9q to get $3k in AWS credits. Make sure to use the same email you registered for Startup School with so you can get swiftly approved.*
 
 Now that you have AWS credits, let’s walk through how to grow your idea to an MVP app.
 
 **Step 1: Validate your idea without writing a single line of code**
 
-It all starts with the idea. But while ideas are important, they are also the easiest part of any startup journey. The biggest mistake I made with my startup, was spending way too much time trying to get my initial idea to work. We love our first ideas but must be able to let our ideas grow and evolve as we progress. It is important to start with the problem your idea is solving. 
+It all starts with the idea. But while ideas are important, they are also the easiest part of any startup journey. The biggest mistake I made with my startup, was spending way too much time trying to get my initial idea to work. It is important to start with the problem your idea is solving. 
 
-For my sample online poster business idea, my hypothesis problem is that *“it’s hard to to find a poster I want to pin up on my wall”*. Who is the target customer with the problem? For example, maybe it’s college students. If so, do college students actually have this problem? How does the solution you’re building improve their life? The best way to go about getting answers is by talking to students via email and in-person interviews.  If you do not find a problem/solution fit, iterate your idea further. In your 1:1 conversations, maybe there were other problems students alluded to (e.g. no time for cooking? not enough means to earn part-time income?).
+For my sample online poster business idea, my hypothesis problem is that *“it’s hard to to find a poster I want to pin up on my wall”*. Who is the target customer with the problem? For example, maybe it’s college students. If so, do college students actually have this problem? How does the solution you’re building improve their life? The best way to go about getting answers is by talking to students via email and in-person interviews. 
 
-If you do find problem/solution fit (Congratulations!), the next step is finding product/market fit — is the college student market large enough for your startup to be a financially viable undertaking. Spend as much time as you can in this stage **without building any tech**. Building technology is expensive and will take time, so figure out how you can *“fake it till you make it”*. For example, with an online poster business, the major hypothesis is that people are willing to buy posters online. You could validate the idea before building an online store by setting up an experiment using known services:
-
-1. Create a Facebook group and upload poster images to it
-2. Promote the Facebook group on campus with flyers or stalls
-3. Accept payments via online services such as Venmo/PayPal 
-4. Print the posters at a nearby printing shop 
-5. Ship posters to the provided address. 
-
-If you are able to get initial traction, your idea has product/market fit and it’s time to actually build the product. If you’re building a tech product (where the end deliverable is a web or mobile app), there are many considerations as a co-founder even before you get started building your product.
+The next step is finding product/market fit — is the college student market large enough for your startup to be a financially viable undertaking. Spend as much time as you can in this stage **without building any tech**. Validate your idea by actually trying to sell posters online on Facebook groups or online college communities. If you are able to get initial traction, your idea has product/market fit and it’s time to actually build the product. 
 
 **Step 2: Unpack your idea**
 
@@ -57,7 +49,7 @@ Your distribution channel is actually the most important decision. Are you build
 
  Once you’ve picked a platform it’s time to pick a technology stack. This is either a really complicated decision or a very simple one if you or your technical cofounder is already comfortable with a particular technology. If you are building a mobile app, do you choose Swift (iOS) or Java (Android), or something cross-platform like React Native? For a web app, the choices seem endless - do you build a single page app with frameworks such as React, Vue, or Angular, or do you build server-rendered apps with more traditional (e.g. Rails, PHP) or modern (NextJS, Nuxt) frameworks? On the backend do you manage your own virtual servers (e.g. EC2)  or go serverless (Lambda, AppSync, Fargate)?
 
-There is no right decision, it’s just what you’re comfortable with. As a tech co-founder who also did sales, one principle I followed was to outsource as much complexity as I could. Some things you give up as a result is control, but I was okay with that as I wanted to focus on selling my product. In 2013, I chose Ruby on Rails because 1) great community support - gems (or 3rd party libs) like Devise, ActiveAdmin were well adopted 2) defacto choice for most startups at the time 3) effortless deployment with Heroku 4) database - I chose Postgres mainly because Postgres and Heroku worked really well together (and I had only ever worked with relational DBs) 5) free to start. 
+There is no right decision, it’s just what you’re comfortable with. In 2013, I chose Ruby on Rails because 1) great community support - gems (or 3rd party libs) like Devise, ActiveAdmin were well adopted 2) defacto choice for most startups at the time 3) effortless deployment with Heroku 4) database - I chose Postgres mainly because Postgres and Heroku worked really well together (and I had only ever worked with relational DBs) 5) free to start. 
 
 If I were building my startup in 2020, I would choose React on the frontend and AWS Amplify for the serverless backend. The primary reasons for using Amplify: 1) really easy to get started 2) free to start and very cheap compared to Heroku even once you start acquiring customers 3) managed services such as authentication and serverless functions (no need to manage scaling servers as your traffic increases). 
 
@@ -105,9 +97,9 @@ Now that we have an auth service, we can also setup fine-grained authorization r
 
 ```
 type Poster @model
-*@auth(rules: 
+@auth(rules: 
 [{allow: groups, groups: ["Admin"], 
-operations: [create, update, delete]}]) *
+operations: [create, update, delete]}])
 {
   id: ID!
   name: String!
@@ -131,3 +123,5 @@ In part 2, we will walkthrough an end-to-end tutorial on creating the poster app
 - Docs: https://aws-amplify.github.io/
 - Community: https://amplify.aws/community/
 - awesome-amplify: https://github.com/dabit3/awesome-aws-amplify
+
+I'm happy to answer any questions you have about my startup experience or Amplify.
