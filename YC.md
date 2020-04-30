@@ -7,10 +7,6 @@ In case you’re not familiar with it, [AWS Amplify](https://aws.amazon.com/ampl
 
 Given my background both as a Founder and at a big tech company, I wanted to share my experience and advice for turning your idea for an app into a working MVP. In Part 1, I’ll start by walking you through how to take an idea — in today’s case, an online poster business — from a concept to a real app. In part 2, we will walkthrough an end-to-end tutorial on creating the poster app.
 
-*If you’d like to follow along and start building your own MVP in real time, be sure to check out the [AWS Activate URL](https://console.aws.amazon.com/activate/home/#/apply/portfolio) and use the ORG ID: 0ap9q to get $3k in AWS credits. Make sure to use the same email you registered for Startup School with so you can get swiftly approved.*
-
-Now that you have AWS credits, let’s walk through how to grow your idea to an MVP app.
-
 **Step 1: Validate your idea without writing a single line of code**
 
 It all starts with the idea. But while ideas are important, they are also the easiest part of any startup journey. The biggest mistake I made with my startup, was spending way too much time trying to get my initial idea to work. It is important to start with the problem your idea is solving. 
