@@ -107,4 +107,9 @@ Edit your schema at /Users/nsswamin/workspace/Experiments/monorepo-amplify/react
 ? Enter maximum statement depth [increase from default if your schema is deeply nested] 2
 ```
 
-Test the React app locally
+Test the React app locally. You should be able to create new Todos.
+```
+npm start
+```
+
+To verify the Todos got created, run `amplify console`. This will open up your backend env in the Amplify Console. Choose the **API** tab and under DataSources click **View** on the Todotable.
