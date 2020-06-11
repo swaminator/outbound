@@ -1,15 +1,3 @@
-## Set up continuous deployment and hosting for a monorepo with an Amplify backend 
-
-Amplify Console recently launched better monorepo support, providing developers with mono-repositories a better experience connecting apps to the Amplify Console. A mono-repository is a repository that contains more than one logical project, each in it’s own repository. For example, if you have multiple teams building microsites under your different subdomains of your primary domain, a monorepo strategy gives each team the flexibility to pick their frontend tech stack (e.g. angular vs react), while allowing shared functionality to be stored in common libraries in the same repository. 
-
-With today’s launch Amplify Console makes it easy to deploy monorepo apps with three important features:
-
-1. Automatic detection of build settings when connecting a sub-folder in your mono-repository. This makes connecting and deploying a project in your monorepo frictionless.
-2. New builds in the Amplify Console are only triggered when there are code changes within a specific app project.
-3. Ability to define the build settings for multiple apps in a single build specification file (amplify.yml) 
-
-In this blog post we are going to walkthrough deploying a React and Angular Todo app that share the same backend built with Amplify.
-
 ### Step 1: Set up your monorepo project
 
 To get started, fork the following project.
