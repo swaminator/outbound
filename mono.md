@@ -107,9 +107,47 @@ Edit your schema at /Users/nsswamin/workspace/Experiments/monorepo-amplify/react
 ? Enter maximum statement depth [increase from default if your schema is deeply nested] 2
 ```
 
-Test the React app locally. You should be able to create new Todos.
+### Step 3a: Integrate backend with React app
+
+Test the React app locally. Create a new to-do..
 ```
 npm start
 ```
 
-To verify the Todos got created, run `amplify console`. This will open up your backend env in the Amplify Console. Choose the **API** tab and under DataSources click **View** on the Todotable.
+To verify the Todos got created, run `amplify console`. This will open up your backend env in the Amplify Console. Choose the **API** tab and under Data Sources click **View** on the Todotable. You should see the to-do record you just created.
+
+### Step 3b: Integrate backend with Angular app
+
+Now pivot to the Angular app.
+```
+cd ../angular
+```
+
+Let's reference the same backend in the Angular app. In order to do so, run the following commands
+```
+amplify pull
+? Do you want to use an AWS profile? Yes
+? Please choose the profile you want to use work-lhr
+? Which app are you working on? 
+❯ todo 
+  app2
+  app3
+
+(hit enter on all other options till the last question)
+
+? Do you plan on modifying this backend? No
+```
+
+Add codegen
+```
+cp ../react/src/graphql/schema.json .
+amplify add codegen --apiId XXXXXXXXX
+? Choose the type of app that you're building javascript
+? What javascript framework are you using angular
+? Choose the code generation language target angular
+? Enter the file name pattern of graphql queries, mutations and subscriptions src/graphql/**/*.graphql
+? Do you want to generate/update all possible GraphQL operations - queries, mutations and subscriptions Yes
+? Enter maximum statement depth [increase from default if your schema is deeply nested] 2
+? Enter the file name for the generated code src/app/API.service.ts
+? Do you want to generate code for your newly created GraphQL API Yes
+```
